@@ -7,7 +7,7 @@
 ### 提出方法
 このリポジトリをフォークして開発を行い、Pull Request形式で課題提出を行ってください。
 
-ラベルとして、Android/iOS/Webのいずれか該当するものを付けてください。
+ラベルとして、Android/iOS/Webフロントエンド/サーバーサイドのいずれか該当するものを付けてください。
 
 Descriptionに以下の情報を記載してください。
 
@@ -25,7 +25,7 @@ Descriptionに以下の情報を記載してください。
 - 設計やコーディングルールに一貫性があること
 - パフォーマンスに留意した実装になっていること
 
-## Android/iOS
+## Android/iOS/Webフロントエンド
 
 ### 課題
 1. [GitHub API](https://developer.github.com/v3/activity/)から好きなものを選び、リスト形式で表示してください
@@ -37,8 +37,9 @@ Descriptionに以下の情報を記載してください。
 - ライブラリは自由に使用して構いません
 - AndroidはJava/Kotlinのどちらかで開発してください
 - iOSはSwiftで開発してください
+- WebフロントエンドはなんらかのAltJS（Babel,TypeScript,flowなど）とSPAフレームワーク（React,Vue,Angularなど）で開発してください
 
-## Web
+## サーバーサイド
 以下のどちらかを選択してください。
 
 ### 課題1
