@@ -1,8 +1,15 @@
 .item {
   margin: 0;
-  padding: 0px 16px;
+  padding: 12px 16px;
   list-style-type: none;
   display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid #e3e3e3;
+}
+
+.item-main {
+  display: flex;
+  justify-content: flex-start;
 }
 
 .avatar {
@@ -10,4 +17,41 @@
   height: 60px;
   margin: 10px;
   border-radius: 50%;
+}
+
+.display-login {
+  text-align: left;
+  line-height: 2em;
+  color: rgba(0, 0, 0, 0.87);
+  font-size: 1rem;
+  margin: 0;
+  font-weight: 600;
+  margin-top: 10px;
+  width: 120px; /* 要素の横幅を指定 */
+  white-space: nowrap; /* 横幅のMAXに達しても改行しない */
+  overflow: hidden; /* ハミ出した部分を隠す */
+  text-overflow: ellipsis; /* 「…」と省略 */
+  -webkit-text-overflow: ellipsis; /* Safari */
+  -o-text-overflow: ellipsis; /* Opera */
+}
+
+.created-at {
+  color: rgba(0, 0, 0, 0.54);
+  font-size: 0.875rem;
+  line-height: 2em;
+  margin-top: 10px;
+}
+
+.event {
+  text-align: left;
+  margin: 0;
+  padding: 8px 0;
+  overflow: hidden;
+  font-size: 1rem;
+}
+
+@media only screen and (max-device-width: 320px) {
+  .created-at {
+    display: none;
+  }
 }

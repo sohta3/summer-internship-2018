@@ -40,7 +40,12 @@ export class List extends Component {
     return (
       <ul className="list">
         {events.map(event => (
-          <Item key={event.id} type={event.type} actor={event.actor} />
+          <Item
+            key={event.id}
+            type={event.type}
+            actor={event.actor}
+            created_at={event.created_at}
+          />
         ))}
       </ul>
     );
