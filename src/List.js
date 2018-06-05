@@ -61,9 +61,9 @@ export class List extends Component {
             isLoaded: true,
             events: result
           });
-          // result.forEach(element => {
-          //   localStorage.setItem(element.id, JSON.stringify(element));
-          // });
+          result.forEach(element => {
+            localStorage.setItem(element.id, JSON.stringify(element));
+          });
         },
         // Note: it's important to handle errors here
         // instead of a catch() block so that we don't swallow

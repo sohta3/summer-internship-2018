@@ -19,7 +19,6 @@ class PageSwitcher extends Component {
   componentStack = [];
 
   componentWillReceiveProps(nextProps) {
-    console.log(nextProps);
     if (nextProps.history.action === "POP") {
       this.state.stack.pop();
       return;
