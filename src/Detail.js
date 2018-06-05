@@ -49,9 +49,7 @@ export class Detail extends Component {
             </tbody>
             {Object.keys(this.state.payload)
               .filter(key => {
-                return (
-                  key !== "commits" && key !== "issue" && key !== "pull_request"
-                );
+                return !this.state.payload[key] instanceof Object;
               })
               .map(key => {
                 return (

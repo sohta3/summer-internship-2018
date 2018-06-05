@@ -3,6 +3,8 @@ import "./App.css";
 import "typeface-roboto";
 import { Page } from "./Page";
 import { withRouter } from "react-router";
+import { CSSTransition, TransitionGroup } from "react-transition-group";
+import ReactCSSTransitionGroup from "react-addons-css-transition-group"; // ES6
 
 class PageSwitcher extends Component {
   constructor(props) {
@@ -64,7 +66,16 @@ class PageSwitcher extends Component {
   };
 
   render() {
-    return <div>{this.state.stack}</div>;
+    return (
+      <TransitionGroup>{this.state.stack}</TransitionGroup>
+      // <ReactCSSTransitionGroup
+      //   transitionName="slide"
+      //   transitionEnterTimeout={500}
+      //   transitionLeaveTimeout={300}
+      // >
+      //   {this.state.stack}
+      // </ReactCSSTransitionGroup>
+    );
   }
 }
 
