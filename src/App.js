@@ -3,6 +3,7 @@ import "./App.css";
 import "typeface-roboto";
 import { List } from "./List";
 import { Detail } from "./Detail";
+import Header from "./Header";
 import PageSwitcher from "./PageSwitcher";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
@@ -20,7 +21,10 @@ class App extends Component {
   render() {
     return (
       <Router>
-        <PageSwitcher appRoute={AppRoute} />
+        <div>
+          <Header />
+          <PageSwitcher appRoute={AppRoute} />
+        </div>
       </Router>
     );
   }

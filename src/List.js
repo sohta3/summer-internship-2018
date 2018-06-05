@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Item } from "./Item";
 import "./List.css";
 import PageContext from "./PageContext";
+import { Header } from "./Header";
 
 export class List extends Component {
   constructor(props) {

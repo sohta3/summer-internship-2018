@@ -66,16 +66,7 @@ class PageSwitcher extends Component {
   };
 
   render() {
-    return (
-      <TransitionGroup>{this.state.stack}</TransitionGroup>
-      // <ReactCSSTransitionGroup
-      //   transitionName="slide"
-      //   transitionEnterTimeout={500}
-      //   transitionLeaveTimeout={300}
-      // >
-      //   {this.state.stack}
-      // </ReactCSSTransitionGroup>
-    );
+    return <TransitionGroup>{this.state.stack}</TransitionGroup>;
   }
 }
 

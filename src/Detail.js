@@ -16,8 +16,6 @@ export class Detail extends Component {
     };
   }
 
-  componentDidMount() {}
-
   render() {
     return (
       <div className="detail">
