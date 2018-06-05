@@ -1,19 +1,13 @@
 import React, { Component } from "react";
 import "./App.css";
 import "typeface-roboto";
-import { List } from "./List";
-import { Detail } from "./Detail";
 import { Page } from "./Page";
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import { withRouter } from "react-router";
-import TransitionGroup from "react-addons-css-transition-group"; // ES6
 
 class PageSwitcher extends Component {
   constructor(props) {
     super(props);
 
-    console.log(props);
-    console.log(props.location);
     this.state = {
       stack: [] // 各ページエレメントの格納場所です。
     };
@@ -22,36 +16,29 @@ class PageSwitcher extends Component {
     this.state.stack.push(this.getPage(props.location));
   }
 
+  componentStack = [];
+
   componentWillReceiveProps(nextProps) {
     console.log(nextProps);
     if (nextProps.history.action === "POP") {
       this.state.stack.pop();
+      return;
     }
     if (nextProps.history.action === "REPLACE") {
       this.state.stack.pop();
+      return;
     }
 
-    // this.onEntered(this.getPage(nextProps.location));
     this.state.stack.push(this.getPage(nextProps.location));
-    const prevComponent = this.state.stack[this.state.stack.length - 2];
-    console.log(prevComponent);
-    // prevComponent.hide();
-  }
-
-  componentWillMount() {
-    this.unlisten = this.props.history.listen((location, action) => {
-      console.log("on route change");
-    });
-  }
-
-  componentWillUnmount() {
-    this.unlisten();
   }
 
   getPage(location) {
-    console.log(location);
     return (
-      <Page onEntered={this.onEntered} onExited={this.onExited}>
+      <Page
+        onEntered={this.onEntered}
+        onExited={this.onExited}
+        key={new Date().getTime()}
+      >
         {React.createElement(this.props.appRoute, { location })}
       </Page>
     );
@@ -59,9 +46,10 @@ class PageSwitcher extends Component {
 
   // 新規ページがプッシュされたら、前のページのcomponentDidHideをトリガーします。
   onEntered = component => {
-    this.state.stack.push(component);
-    const prevTopComponent = this.state.stack[this.state.stack.length - 2];
-    console.log(prevTopComponent);
+    this.componentStack.push(component);
+    const prevTopComponent = this.componentStack[
+      this.componentStack.length - 2
+    ];
     if (prevTopComponent && prevTopComponent.componentDidHide) {
       prevTopComponent.componentDidHide();
     }
@@ -77,7 +65,7 @@ class PageSwitcher extends Component {
   };
 
   render() {
-    return <div>{this.state.stack[this.state.stack.length - 1]}</div>;
+    return <div>{this.state.stack}</div>;
   }
 }
 

@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import "./Item.css";
 import moment from "moment";
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 export class Item extends Component {
   constructor(props) {

@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Item } from "./Item";
 import "./List.css";
+import PageContext from "./PageContext";
 
 export class List extends Component {
   constructor(props) {
@@ -74,27 +75,34 @@ export class List extends Component {
           });
         }
       );
-  }
 
-  hide() {
-    this.setState({ isHide: true });
+    if (this.props.componentDidHide) {
+      this.props.componentDidHide();
+    }
   }
 
   render() {
     const { events } = this.state;
 
     return (
-      <ul className="list {this.state.isHide ? 'hidden' : '' }">
-        {events.map(event => (
-          <Item
-            key={event.id}
-            id={event.id}
-            type={event.type}
-            actor={event.actor}
-            created_at={event.created_at}
-          />
-        ))}
-      </ul>
+      <PageContext.Consumer>
+        {context => (
+          <div>
+            <div>{context.isHide}</div>
+            <ul className={context.isHide ? "list hidden" : "list"}>
+              {events.map(event => (
+                <Item
+                  key={event.id}
+                  id={event.id}
+                  type={event.type}
+                  actor={event.actor}
+                  created_at={event.created_at}
+                />
+              ))}
+            </ul>
+          </div>
+        )}
+      </PageContext.Consumer>
     );
   }
 }
