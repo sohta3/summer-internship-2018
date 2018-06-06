@@ -1,7 +1,8 @@
 import React, { Component } from "react";
-import "./Detail.css";
 import moment from "moment";
 import { withRouter } from "react-router";
+import ReactCSSTransitionGroup from "react-addons-css-transition-group"; // ES6
+import { Link } from "react-router-dom";
 
 class Header extends Component {
   constructor(props) {
@@ -22,10 +23,24 @@ class Header extends Component {
       });
     }
   }
+
+  historyBack() {
+    window.history.back();
+  }
+
   render() {
     return (
       <header className="App-header">
-        <h2 className="App-title">{this.state.title}</h2>
+        <div className="header-container">
+          {this.props.location.pathname.indexOf("/detail") >= 0 ? (
+            <span onClick={this.historyBack}>
+              <img className="back" src="/arrowbackbutton_79955.png" />
+            </span>
+          ) : (
+            ""
+          )}
+          <h2 className="App-title">{this.state.title}</h2>
+        </div>
       </header>
     );
   }

@@ -21,6 +21,7 @@ class PageSwitcher extends Component {
   componentStack = [];
 
   componentWillReceiveProps(nextProps) {
+    console.log(nextProps);
     if (nextProps.history.action === "POP") {
       this.state.stack.pop();
       return;
@@ -67,6 +68,16 @@ class PageSwitcher extends Component {
 
   render() {
     return <TransitionGroup>{this.state.stack}</TransitionGroup>;
+
+    // return (
+    //   <ReactCSSTransitionGroup
+    //     transitionName="slide"
+    //     transitionEnterTimeout={500}
+    //     transitionLeaveTimeout={300}
+    //   >
+    //     {this.state.stack}
+    //   </ReactCSSTransitionGroup>
+    // );
   }
 }
 

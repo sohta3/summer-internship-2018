@@ -16,66 +16,214 @@ export class List extends Component {
   }
 
   componentDidMount() {
-    // const events = [
-    //   {
-    //     id: 1,
-    //     type: "push",
-    //     actor: {
-    //       display_login: "hoge",
-    //       avatar_url:
-    //         "http://www.yutori528.com/wp-content/uploads/2017/09/DSC_8541.jpg"
-    //     },
-    //     created_at: Date.now().toString()
-    //   },
-    //   {
-    //     id: 2,
-    //     type: "push",
-    //     actor: {
-    //       display_login: "hoge",
-    //       avatar_url:
-    //         "http://www.yutori528.com/wp-content/uploads/2017/09/DSC_8541.jpg"
-    //     },
-    //     created_at: Date.now().toString()
-    //   },
-    //   {
-    //     id: 3,
-    //     type: "push",
-    //     actor: {
-    //       display_login: "hoge",
-    //       avatar_url:
-    //         "http://www.yutori528.com/wp-content/uploads/2017/09/DSC_8541.jpg"
-    //     },
-    //     created_at: Date.now().toString()
-    //   }
-    // ];
-
-    // this.setState({
-    //   isLoaded: true,
-    //   events: events
-    // });
-
-    fetch("https://api.github.com/events")
-      .then(res => res.json())
-      .then(
-        result => {
-          this.setState({
-            isLoaded: true,
-            events: result
-          });
-          result.forEach(element => {
-            localStorage.setItem(element.id, JSON.stringify(element));
-          });
+    const events = [
+      {
+        id: 1,
+        type: "push",
+        actor: {
+          display_login: "hoge",
+          avatar_url:
+            "http://www.yutori528.com/wp-content/uploads/2017/09/DSC_8541.jpg"
         },
-        // Note: it's important to handle errors here
-        // instead of a catch() block so that we don't swallow
-        // exceptions from actual bugs in components.
-        error => {
-          this.setState({
-            isLoaded: true,
-            error
-          });
-        }
-      );
+        repo: {
+          name: "hoge"
+        },
+        payload: {
+          name: "hoge"
+        },
+        created_at: Date.now().toString()
+      },
+      {
+        id: 2,
+        type: "push",
+        actor: {
+          display_login: "hoge",
+          avatar_url:
+            "http://www.yutori528.com/wp-content/uploads/2017/09/DSC_8541.jpg"
+        },
+        repo: {
+          name: "hoge"
+        },
+        payload: {
+          name: "hoge"
+        },
+        created_at: Date.now().toString()
+      },
+      {
+        id: 3,
+        type: "push",
+        actor: {
+          display_login: "hoge",
+          avatar_url:
+            "http://www.yutori528.com/wp-content/uploads/2017/09/DSC_8541.jpg"
+        },
+        repo: {
+          name: "hoge"
+        },
+        payload: {
+          name: "hoge"
+        },
+        created_at: Date.now().toString()
+      },
+      {
+        id: 4,
+        type: "push",
+        actor: {
+          display_login: "hoge",
+          avatar_url:
+            "http://www.yutori528.com/wp-content/uploads/2017/09/DSC_8541.jpg"
+        },
+        repo: {
+          name: "hoge"
+        },
+        payload: {
+          name: "hoge"
+        },
+        created_at: Date.now().toString()
+      },
+      {
+        id: 5,
+        type: "push",
+        actor: {
+          display_login: "hoge",
+          avatar_url:
+            "http://www.yutori528.com/wp-content/uploads/2017/09/DSC_8541.jpg"
+        },
+        repo: {
+          name: "hoge"
+        },
+        payload: {
+          name: "hoge"
+        },
+        created_at: Date.now().toString()
+      },
+      {
+        id: 6,
+        type: "push",
+        actor: {
+          display_login: "hoge",
+          avatar_url:
+            "http://www.yutori528.com/wp-content/uploads/2017/09/DSC_8541.jpg"
+        },
+        repo: {
+          name: "hoge"
+        },
+        payload: {
+          name: "hoge"
+        },
+        created_at: Date.now().toString()
+      },
+      {
+        id: 7,
+        type: "push",
+        actor: {
+          display_login: "hoge",
+          avatar_url:
+            "http://www.yutori528.com/wp-content/uploads/2017/09/DSC_8541.jpg"
+        },
+        repo: {
+          name: "hoge"
+        },
+        payload: {
+          name: "hoge"
+        },
+        created_at: Date.now().toString()
+      },
+      {
+        id: 8,
+        type: "push",
+        actor: {
+          display_login: "hoge",
+          avatar_url:
+            "http://www.yutori528.com/wp-content/uploads/2017/09/DSC_8541.jpg"
+        },
+        repo: {
+          name: "hoge"
+        },
+        payload: {
+          name: "hoge"
+        },
+        created_at: Date.now().toString()
+      },
+      {
+        id: 9,
+        type: "push",
+        actor: {
+          display_login: "hoge",
+          avatar_url:
+            "http://www.yutori528.com/wp-content/uploads/2017/09/DSC_8541.jpg"
+        },
+        repo: {
+          name: "hoge"
+        },
+        payload: {
+          name: "hoge"
+        },
+        created_at: Date.now().toString()
+      },
+      {
+        id: 10,
+        type: "push",
+        actor: {
+          display_login: "hoge",
+          avatar_url:
+            "http://www.yutori528.com/wp-content/uploads/2017/09/DSC_8541.jpg"
+        },
+        repo: {
+          name: "hoge"
+        },
+        payload: {
+          name: "hoge"
+        },
+        created_at: Date.now().toString()
+      },
+      {
+        id: 11,
+        type: "push",
+        actor: {
+          display_login: "hoge",
+          avatar_url:
+            "http://www.yutori528.com/wp-content/uploads/2017/09/DSC_8541.jpg"
+        },
+        repo: {
+          name: "hoge"
+        },
+        payload: {
+          name: "hoge"
+        },
+        created_at: Date.now().toString()
+      }
+    ];
+    events.forEach(element => {
+      localStorage.setItem(element.id, JSON.stringify(element));
+    });
+    this.setState({
+      isLoaded: true,
+      events: events
+    });
+
+    // fetch("https://api.github.com/events")
+    //   .then(res => res.json())
+    //   .then(
+    //     result => {
+    //       this.setState({
+    //         isLoaded: true,
+    //         events: result
+    //       });
+    //       result.forEach(element => {
+    //         localStorage.setItem(element.id, JSON.stringify(element));
+    //       });
+    //     },
+    //     // Note: it's important to handle errors here
+    //     // instead of a catch() block so that we don't swallow
+    //     // exceptions from actual bugs in components.
+    //     error => {
+    //       this.setState({
+    //         isLoaded: true,
+    //         error
+    //       });
+    //     }
+    //   );
 
     if (this.props.componentDidHide) {
       this.props.componentDidHide();
