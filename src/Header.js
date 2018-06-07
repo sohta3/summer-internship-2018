@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import moment from "moment";
 import { withRouter } from "react-router";
-import ReactCSSTransitionGroup from "react-addons-css-transition-group"; // ES6
 import { Link } from "react-router-dom";
 
 class Header extends Component {
