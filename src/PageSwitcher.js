@@ -4,6 +4,7 @@ import "typeface-roboto";
 import { Page } from "./Page";
 import { withRouter } from "react-router";
 import { CSSTransition, TransitionGroup } from "react-transition-group";
+import { PageTransition } from "react-router-page-transition";
 
 class PageSwitcher extends Component {
   constructor(props) {
@@ -67,6 +68,7 @@ class PageSwitcher extends Component {
   };
 
   render() {
+    // return <PageTransition timeout={500}>{this.state.stack}</PageTransition>;
     return <div>{this.state.stack}</div>;
   }
 }
