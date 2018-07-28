@@ -1,18 +1,26 @@
 import React, { Component } from "react";
 import "./Detail.css";
+import Highlight from "react-highlight";
 
 export class Detail extends Component {
   constructor(props) {
     super(props);
+    console.log(this.props);
+    console.log(this.props);
     const person = JSON.parse(localStorage.getItem(this.props.match.params.id));
     this.state = {
       person: person
     };
   }
 
+  componentDidMount() {}
+
   render() {
     return (
       <article>
+        <Highlight innerHTML={true}>
+          {"html with multiple code snippets"}
+        </Highlight>
         <h1>{this.state.person.name}</h1>
         <div>
           <label>height:</label>

@@ -253,13 +253,13 @@ export class List extends Component {
         ]
       }
     };
+  }
 
+  componentDidMount() {
     this.state.people.results.forEach((person, index) => {
       localStorage.setItem(index + 1, JSON.stringify(person));
     });
   }
-
-  componentDidMount() {}
 
   render() {
     return (
