@@ -6,16 +6,27 @@ export class Detail extends Component {
   constructor(props) {
     super(props);
     console.log(this.props);
-    console.log(this.props);
-    const person = JSON.parse(localStorage.getItem(this.props.match.params.id));
-    this.state = {
-      person: person
-    };
+    if (typeof localStorage === "undefined" || localStorage === null) {
+      this.state = {
+        person: null
+      };
+    } else {
+      const person = JSON.parse(
+        localStorage.getItem(this.props.match.params.id)
+      );
+      this.state = {
+        person: person
+      };
+    }
   }
 
   componentDidMount() {}
 
   render() {
+    if (!this.state.person) {
+      return <h1>...</h1>;
+    }
+
     return (
       <article>
         <Highlight innerHTML={true}>
