@@ -5,6 +5,7 @@ import { StaticRouter } from "react-router-dom";
 import App from "../App";
 import path from "path";
 import fs from "fs";
+import Loadable from "react-loadable";
 
 // initialize the application and create the routes
 const PORT = process.env.PORT || 3006;
@@ -38,6 +39,8 @@ app.get("*", (req, res) => {
   });
 });
 
-app.listen(PORT, () => {
-  console.log(`😎 Server is listening on port ${PORT}`);
+Loadable.preloadAll().then(() => {
+  app.listen(PORT, () => {
+    console.log(`😎 Server is listening on port ${PORT}`);
+  });
 });

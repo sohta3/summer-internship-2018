@@ -1,31 +1,31 @@
 import React, { Component } from "react";
 import "./App.css";
-import { BrowserRouter, Switch, Route } from "react-router-dom";
-import { List } from "./List";
-import { Detail } from "./Detail";
+import { Switch, Route } from "react-router-dom";
+// import { List } from "./List";
+// import { Detail } from "./Detail";
 import Loadable from "react-loadable";
 
 function Loading() {
   return <div>Loading...</div>;
 }
 
-// const List = Loadable({
-//   loader: () => import(/* webpackChunkName: "list" */ "./List"),
-//   loading: Loading,
-//   render(loaded, props) {
-//     let Component = loaded.List;
-//     return <Component />;
-//   }
-// });
+const List = Loadable({
+  loader: () => import(/* webpackChunkName: "list" */ "./List"),
+  loading: Loading,
+  render(loaded, props) {
+    let Component = loaded.List;
+    return <Component />;
+  }
+});
 
-// const Detail = Loadable({
-//   loader: () => import(/* webpackChunkName: "detail" */ "./Detail"),
-//   loading: Loading,
-//   render(loaded, props) {
-//     let Component = loaded.Detail;
-//     return <Component {...props} />;
-//   }
-// });
+const Detail = Loadable({
+  loader: () => import(/* webpackChunkName: "detail" */ "./Detail"),
+  loading: Loading,
+  render(loaded, props) {
+    let Component = loaded.Detail;
+    return <Component {...props} />;
+  }
+});
 
 const NotFound = () => (
   <div>

@@ -5,7 +5,6 @@ import Highlight from "react-highlight";
 export class Detail extends Component {
   constructor(props) {
     super(props);
-    console.log(this.props);
     if (typeof localStorage === "undefined" || localStorage === null) {
       this.state = {
         person: null
@@ -20,7 +19,9 @@ export class Detail extends Component {
     }
   }
 
-  componentDidMount() {}
+  componentDidMount() {
+    console.log("aaaaaa");
+  }
 
   render() {
     if (!this.state.person) {
