@@ -19,9 +19,7 @@ export class Detail extends Component {
     }
   }
 
-  componentDidMount() {
-    console.log("aaaaaa");
-  }
+  componentDidMount() {}
 
   render() {
     if (!this.state.person) {

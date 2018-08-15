@@ -1,8 +1,6 @@
 import React, { Component } from "react";
 import "./App.css";
 import { Switch, Route } from "react-router-dom";
-// import { List } from "./List";
-// import { Detail } from "./Detail";
 import Loadable from "react-loadable";
 
 function Loading() {
@@ -11,6 +9,7 @@ function Loading() {
 
 const List = Loadable({
   loader: () => import(/* webpackChunkName: "list" */ "./List"),
+  modules: ["list"],
   loading: Loading,
   render(loaded, props) {
     let Component = loaded.List;
@@ -20,6 +19,7 @@ const List = Loadable({
 
 const Detail = Loadable({
   loader: () => import(/* webpackChunkName: "detail" */ "./Detail"),
+  modules: ["detail"],
   loading: Loading,
   render(loaded, props) {
     let Component = loaded.Detail;
